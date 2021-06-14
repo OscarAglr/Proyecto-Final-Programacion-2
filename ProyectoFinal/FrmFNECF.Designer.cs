@@ -45,6 +45,7 @@ namespace ProyectoFinal
             this.dgvFNECF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFNECF.Location = new System.Drawing.Point(12, 125);
             this.dgvFNECF.Name = "dgvFNECF";
+            this.dgvFNECF.ReadOnly = true;
             this.dgvFNECF.RowHeadersWidth = 62;
             this.dgvFNECF.RowTemplate.Height = 28;
             this.dgvFNECF.Size = new System.Drawing.Size(624, 313);

@@ -54,6 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Depreciacion\DepreciacionFactory.cs" />
+    <Compile Include="Depreciacion\IDepreciacion.cs" />
+    <Compile Include="Depreciacion\LineaRecta.cs" />
+    <Compile Include="Depreciacion\SDADepreciacion.cs" />
+    <Compile Include="Enums\MetodoDepreciacion.cs" />
+    <Compile Include="FrmAddData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddData.Designer.cs">
+      <DependentUpon>FrmAddData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFNECF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,8 +83,12 @@
     <Compile Include="FrmFNESF.Designer.cs">
       <DependentUpon>FrmFNESF.cs</DependentUpon>
     </Compile>
+    <Compile Include="poco\Proyecto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddData.resx">
+      <DependentUpon>FrmAddData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmFNECF.resx">
       <DependentUpon>FrmFNECF.cs</DependentUpon>
     </EmbeddedResource>
