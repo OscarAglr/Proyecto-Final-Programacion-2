@@ -122,7 +122,7 @@ namespace ProyectoFinal
                 decimal.TryParse(dgvFNECF.Rows[10].Cells[i].Value.ToString(), out abono);
                 decimal.TryParse(dgvFNECF.Rows[11].Cells[i].Value.ToString(), out prestamo);
                 decimal.TryParse(dgvFNECF.Rows[12].Cells[i].Value.ToString(), out inversion);
-                dgvFNECF.Rows[13].Cells[i].Value = udi + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion;
+                dgvFNECF.Rows[13].Cells[i].Value = udi + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion - abono + prestamo;
             }
         }
 
