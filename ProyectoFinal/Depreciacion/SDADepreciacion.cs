@@ -20,7 +20,7 @@ namespace ProyectoFinal.Depreciacion
 
             for (int i = 0; i < depreciacion.Length; i++)
             {
-                w = ((decimal)(i + 1) / factor);
+                w = ((decimal)(vidaUtil - i) / factor);
                 depreciacion[i] = Math.Round(depreciacionBase * w, 2);
             }
 

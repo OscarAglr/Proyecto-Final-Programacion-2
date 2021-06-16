@@ -21,6 +21,7 @@ namespace ProyectoFinal
         const decimal IR = 0.30m;
         List<decimal> ingresos = new List<decimal>();
         List<decimal> costos = new List<decimal>();
+        List<double> FNE = new List<double>();
         CuotaNivelada amortizacion = new CuotaNivelada();
         public decimal[] Depreciacion { get; set; }
         public int IndexDepreciacion { get; set; }
@@ -41,7 +42,7 @@ namespace ProyectoFinal
             dt.Columns.Add(" ");
             for (int i = 0; i <= n; i++)
             {
-                dt.Columns.Add($"{i}");
+                dt.Columns.Add($"{i}", typeof(decimal));
             }
             dt.Rows.Add("Ingresos"); //0
             dt.Rows.Add("Egresos"); //1
@@ -72,6 +73,7 @@ namespace ProyectoFinal
             dgvFNECF.Rows[11].ReadOnly = true;
             dgvFNECF.Rows[12].ReadOnly = true;
             dgvFNECF.Rows[13].ReadOnly = true;
+            formatearCeldas();
         }
 
         private void FrmFNECF_Load(object sender, EventArgs e)
@@ -123,6 +125,7 @@ namespace ProyectoFinal
                 decimal.TryParse(dgvFNECF.Rows[11].Cells[i].Value.ToString(), out prestamo);
                 decimal.TryParse(dgvFNECF.Rows[12].Cells[i].Value.ToString(), out inversion);
                 dgvFNECF.Rows[13].Cells[i].Value = udi + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion - abono + prestamo;
+                
             }
         }
 
@@ -173,6 +176,14 @@ namespace ProyectoFinal
         private void AsignarPrestamo()
         {
             dgvFNECF.Rows[11].Cells[1].Value = proyecto.Prestamo;
+        }
+
+        private void formatearCeldas()
+        {
+            for (int i = 0; i < dgvFNECF.ColumnCount; i++)
+            {
+                this.dgvFNECF.Columns[i].DefaultCellStyle.Format = "N2";
+            }
         }
     }
 }

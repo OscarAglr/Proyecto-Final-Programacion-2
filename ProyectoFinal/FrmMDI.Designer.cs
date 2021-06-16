@@ -29,6 +29,7 @@ namespace ProyectoFinal
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMDI));
             this.menuPrograma = new System.Windows.Forms.MenuStrip();
             this.catalogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anualidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,7 @@ namespace ProyectoFinal
             this.catalogoToolStripMenuItem});
             this.menuPrograma.Location = new System.Drawing.Point(0, 0);
             this.menuPrograma.Name = "menuPrograma";
-            this.menuPrograma.Size = new System.Drawing.Size(800, 36);
+            this.menuPrograma.Size = new System.Drawing.Size(800, 33);
             this.menuPrograma.TabIndex = 1;
             this.menuPrograma.Text = "menuStrip2";
             // 
@@ -60,7 +61,7 @@ namespace ProyectoFinal
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
-            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(100, 32);
+            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(100, 29);
             this.catalogoToolStripMenuItem.Text = "Catalogo";
             // 
             // anualidadesToolStripMenuItem
@@ -110,9 +111,10 @@ namespace ProyectoFinal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuPrograma);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmMDI";
-            this.Text = "Form1";
+            this.Text = "Proyecto";
             this.menuPrograma.ResumeLayout(false);
             this.menuPrograma.PerformLayout();
             this.ResumeLayout(false);

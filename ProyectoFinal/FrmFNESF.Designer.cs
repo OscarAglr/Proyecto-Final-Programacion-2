@@ -36,6 +36,10 @@ namespace ProyectoFinal
             this.button1 = new System.Windows.Forms.Button();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.btnAddData = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtVPN = new System.Windows.Forms.TextBox();
+            this.txtTIR = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFNE)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +47,7 @@ namespace ProyectoFinal
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 76);
+            this.label1.Location = new System.Drawing.Point(12, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 20);
             this.label1.TabIndex = 0;
@@ -51,7 +55,12 @@ namespace ProyectoFinal
             // 
             // numTables
             // 
-            this.numTables.Location = new System.Drawing.Point(177, 74);
+            this.numTables.Location = new System.Drawing.Point(177, 48);
+            this.numTables.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.numTables.Minimum = new decimal(new int[] {
             1,
             0,
@@ -71,19 +80,21 @@ namespace ProyectoFinal
             this.dgvFNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFNE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFNE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFNE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFNE.Location = new System.Drawing.Point(16, 106);
+            this.dgvFNE.Location = new System.Drawing.Point(16, 84);
             this.dgvFNE.Name = "dgvFNE";
             this.dgvFNE.RowHeadersWidth = 62;
             this.dgvFNE.RowTemplate.Height = 28;
-            this.dgvFNE.Size = new System.Drawing.Size(642, 332);
+            this.dgvFNE.Size = new System.Drawing.Size(772, 372);
             this.dgvFNE.TabIndex = 2;
             this.dgvFNE.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFNE_CellContentClick);
             // 
             // btnAddTables
             // 
             this.btnAddTables.AutoSize = true;
-            this.btnAddTables.Location = new System.Drawing.Point(269, 69);
+            this.btnAddTables.Location = new System.Drawing.Point(255, 43);
             this.btnAddTables.Name = "btnAddTables";
             this.btnAddTables.Size = new System.Drawing.Size(136, 35);
             this.btnAddTables.TabIndex = 3;
@@ -93,21 +104,21 @@ namespace ProyectoFinal
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(683, 403);
+            this.button1.Location = new System.Drawing.Point(177, 505);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 35);
+            this.button1.Size = new System.Drawing.Size(153, 35);
             this.button1.TabIndex = 4;
-            this.button1.Text = "prueba";
+            this.button1.Text = "Calcular VPN y TIR";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalcular.AutoSize = true;
-            this.btnCalcular.Location = new System.Drawing.Point(683, 106);
+            this.btnCalcular.Location = new System.Drawing.Point(683, 500);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(105, 35);
             this.btnCalcular.TabIndex = 5;
@@ -117,8 +128,9 @@ namespace ProyectoFinal
             // 
             // btnAddData
             // 
+            this.btnAddData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddData.AutoSize = true;
-            this.btnAddData.Location = new System.Drawing.Point(522, 69);
+            this.btnAddData.Location = new System.Drawing.Point(652, 43);
             this.btnAddData.Name = "btnAddData";
             this.btnAddData.Size = new System.Drawing.Size(136, 35);
             this.btnAddData.TabIndex = 6;
@@ -126,11 +138,53 @@ namespace ProyectoFinal
             this.btnAddData.UseVisualStyleBackColor = true;
             this.btnAddData.Click += new System.EventHandler(this.btnAddData_Click);
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 477);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "VPN";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 512);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "TIR";
+            // 
+            // txtVPN
+            // 
+            this.txtVPN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtVPN.Location = new System.Drawing.Point(59, 474);
+            this.txtVPN.Name = "txtVPN";
+            this.txtVPN.Size = new System.Drawing.Size(100, 26);
+            this.txtVPN.TabIndex = 9;
+            this.txtVPN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVPN_KeyPress);
+            // 
+            // txtTIR
+            // 
+            this.txtTIR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTIR.Location = new System.Drawing.Point(59, 509);
+            this.txtTIR.Name = "txtTIR";
+            this.txtTIR.Size = new System.Drawing.Size(100, 26);
+            this.txtTIR.TabIndex = 10;
+            this.txtTIR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTIR_KeyPress);
+            // 
             // FrmFNESF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 552);
+            this.Controls.Add(this.txtTIR);
+            this.Controls.Add(this.txtVPN);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAddData);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.button1);
@@ -157,5 +211,9 @@ namespace ProyectoFinal
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Button btnAddData;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtVPN;
+        private System.Windows.Forms.TextBox txtTIR;
     }
 }

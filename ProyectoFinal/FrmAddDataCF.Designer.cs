@@ -30,6 +30,8 @@ namespace ProyectoFinal
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbAmortizacion = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.txtTasaInteres = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@ namespace ProyectoFinal
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbAmortizacion = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +78,23 @@ namespace ProyectoFinal
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Añadir datos del proyecto";
+            // 
+            // cbAmortizacion
+            // 
+            this.cbAmortizacion.FormattingEnabled = true;
+            this.cbAmortizacion.Location = new System.Drawing.Point(190, 365);
+            this.cbAmortizacion.Name = "cbAmortizacion";
+            this.cbAmortizacion.Size = new System.Drawing.Size(194, 28);
+            this.cbAmortizacion.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 368);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(183, 20);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Método de amortización:";
             // 
             // txtTasaInteres
             // 
@@ -220,23 +237,6 @@ namespace ProyectoFinal
             this.button1.Text = "Guardar datos";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 368);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(183, 20);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Método de amortización:";
-            // 
-            // cbAmortizacion
-            // 
-            this.cbAmortizacion.FormattingEnabled = true;
-            this.cbAmortizacion.Location = new System.Drawing.Point(190, 365);
-            this.cbAmortizacion.Name = "cbAmortizacion";
-            this.cbAmortizacion.Size = new System.Drawing.Size(194, 28);
-            this.cbAmortizacion.TabIndex = 26;
             // 
             // FrmAddDataCF
             // 

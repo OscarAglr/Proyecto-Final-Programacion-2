@@ -34,7 +34,7 @@ namespace ProyectoFinal
         {
             FrmFNESF.proyecto.Inversion = Convert.ToDecimal(txtInversion.Text);
             FrmFNESF.proyecto.ValorResidual = Convert.ToDecimal(txtVR.Text);
-            FrmFNESF.proyecto.TMAR = Convert.ToDecimal(txtTMAR.Text);
+            FrmFNESF.proyecto.TMAR = Convert.ToDecimal(txtTMAR.Text)/100;
             FrmFNESF.IndexDepreciacion = cbMetodos.SelectedIndex;
             FrmFNESF.LoadDepreciacion();
             this.Close();
