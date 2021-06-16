@@ -11,3 +11,4 @@ C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\P
 C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmFNESF.resources
 C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmFNECF.resources
 C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmAddData.resources
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmAddDataCF.resources

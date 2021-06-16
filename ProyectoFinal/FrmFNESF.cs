@@ -98,7 +98,8 @@ namespace ProyectoFinal
                 dgvFNE.Rows[3].Cells[i].Value = uai;
                 decimal imp = uai * IR;
                 dgvFNE.Rows[4].Cells[i].Value = imp;
-                dgvFNE.Rows[5].Cells[i].Value = uai - imp;
+                decimal udi = uai - imp;
+                dgvFNE.Rows[5].Cells[i].Value = udi;
                 
                 decimal egresos_no_afectos_de_impuesto = 0;
                 decimal ingresos_no_afectos_de_impuesto = 0;
@@ -107,7 +108,7 @@ namespace ProyectoFinal
                 decimal.TryParse(dgvFNE.Rows[7].Cells[i].Value.ToString(), out egresos_no_afectos_de_impuesto);
                 decimal.TryParse(dgvFNE.Rows[8].Cells[i].Value.ToString(), out ingresos_no_afectos_de_impuesto);
                 decimal.TryParse(dgvFNE.Rows[9].Cells[i].Value.ToString(), out inversion);
-                dgvFNE.Rows[10].Cells[i].Value = uai + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion;
+                dgvFNE.Rows[10].Cells[i].Value = udi + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion;
             }
         }
 
@@ -131,13 +132,18 @@ namespace ProyectoFinal
                                                         .GetValue(IndexDepreciacion));
             Depreciacion = depreciacion.Calcular(proyecto.Inversion, 
                                                     proyecto.ValorResidual, proyecto.VidaUtil);
-            dgvFNE.Rows[9].Cells[1].Value = proyecto.Inversion;
+            AsignarInversion();
             int colCount = dgvFNE.ColumnCount;
             for (int i = 2; i < colCount; i++)
             {
                 dgvFNE.Rows[2].Cells[i].Value = Depreciacion[i - 2];
                 dgvFNE.Rows[6].Cells[i].Value = Depreciacion[i - 2];
             }
+        }
+
+        private void AsignarInversion()
+        {
+            dgvFNE.Rows[9].Cells[1].Value = proyecto.Inversion;
         }
 
         private void dgvFNE_CellContentClick(object sender, DataGridViewCellEventArgs e)

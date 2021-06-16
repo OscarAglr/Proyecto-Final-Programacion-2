@@ -95,9 +95,9 @@ namespace ProyectoFinal
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(687, 403);
+            this.button1.Location = new System.Drawing.Point(683, 403);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
+            this.button1.Size = new System.Drawing.Size(105, 35);
             this.button1.TabIndex = 4;
             this.button1.Text = "prueba";
             this.button1.UseVisualStyleBackColor = true;
@@ -107,9 +107,9 @@ namespace ProyectoFinal
             // 
             this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalcular.AutoSize = true;
-            this.btnCalcular.Location = new System.Drawing.Point(687, 106);
+            this.btnCalcular.Location = new System.Drawing.Point(683, 106);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(85, 35);
+            this.btnCalcular.Size = new System.Drawing.Size(105, 35);
             this.btnCalcular.TabIndex = 5;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
