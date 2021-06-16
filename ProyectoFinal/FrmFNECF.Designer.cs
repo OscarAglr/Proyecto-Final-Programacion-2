@@ -44,33 +44,38 @@ namespace ProyectoFinal
             this.dgvFNECF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFNECF.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFNECF.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvFNECF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFNECF.Location = new System.Drawing.Point(12, 125);
+            this.dgvFNECF.Location = new System.Drawing.Point(8, 81);
+            this.dgvFNECF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvFNECF.Name = "dgvFNECF";
             this.dgvFNECF.RowHeadersWidth = 62;
             this.dgvFNECF.RowTemplate.Height = 28;
-            this.dgvFNECF.Size = new System.Drawing.Size(665, 313);
+            this.dgvFNECF.Size = new System.Drawing.Size(443, 203);
             this.dgvFNECF.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 95);
+            this.label1.Location = new System.Drawing.Point(8, 62);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 20);
+            this.label1.Size = new System.Drawing.Size(105, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Vida util del proyecto";
             // 
             // numTables
             // 
-            this.numTables.Location = new System.Drawing.Point(173, 93);
+            this.numTables.Location = new System.Drawing.Point(115, 60);
+            this.numTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numTables.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numTables.Name = "numTables";
-            this.numTables.Size = new System.Drawing.Size(68, 26);
+            this.numTables.Size = new System.Drawing.Size(45, 20);
             this.numTables.TabIndex = 2;
             this.numTables.Value = new decimal(new int[] {
             1,
@@ -80,9 +85,10 @@ namespace ProyectoFinal
             // 
             // btnAddTable
             // 
-            this.btnAddTable.Location = new System.Drawing.Point(264, 88);
+            this.btnAddTable.Location = new System.Drawing.Point(176, 57);
+            this.btnAddTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddTable.Name = "btnAddTable";
-            this.btnAddTable.Size = new System.Drawing.Size(147, 35);
+            this.btnAddTable.Size = new System.Drawing.Size(98, 23);
             this.btnAddTable.TabIndex = 3;
             this.btnAddTable.Text = "Agregar tablas";
             this.btnAddTable.UseVisualStyleBackColor = true;
@@ -90,9 +96,10 @@ namespace ProyectoFinal
             // 
             // btnData
             // 
-            this.btnData.Location = new System.Drawing.Point(533, 88);
+            this.btnData.Location = new System.Drawing.Point(355, 57);
+            this.btnData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnData.Name = "btnData";
-            this.btnData.Size = new System.Drawing.Size(144, 35);
+            this.btnData.Size = new System.Drawing.Size(96, 23);
             this.btnData.TabIndex = 4;
             this.btnData.Text = "Agregar datos";
             this.btnData.UseVisualStyleBackColor = true;
@@ -100,9 +107,11 @@ namespace ProyectoFinal
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(683, 125);
+            this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalcular.Location = new System.Drawing.Point(455, 81);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(105, 35);
+            this.btnCalcular.Size = new System.Drawing.Size(70, 23);
             this.btnCalcular.TabIndex = 5;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
@@ -110,15 +119,16 @@ namespace ProyectoFinal
             // 
             // FrmFNECF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(533, 292);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.btnData);
             this.Controls.Add(this.btnAddTable);
             this.Controls.Add(this.numTables);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvFNECF);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmFNECF";
             this.Text = "FrmFNECF";
             this.Load += new System.EventHandler(this.FrmFNECF_Load);

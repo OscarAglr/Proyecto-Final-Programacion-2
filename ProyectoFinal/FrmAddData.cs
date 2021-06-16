@@ -39,5 +39,10 @@ namespace ProyectoFinal
             FrmFNESF.LoadDepreciacion();
             this.Close();
         }
+
+        private void validaciones(decimal inversion, decimal valorResidual, decimal TMAR)
+        {
+
+        }
     }
 }
