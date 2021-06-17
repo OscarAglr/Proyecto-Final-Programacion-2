@@ -89,11 +89,55 @@ namespace ProyectoFinal
         private void btnImprimir_Click(object sender, EventArgs e)
         {
 
+            if (dgvHistorial.Rows.Count > 0)
+            {
+
+                Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                for (int i = 1; i < dgvHistorial.Columns.Count + 1; i++)
+                {
+                    xcelApp.Cells[1, i] = dgvHistorial.Columns[i - 1].HeaderText;
+                }
+
+                int k = dgvHistorial.CurrentCell.RowIndex;
+
+                for (int j = 0; j < dgvHistorial.Columns.Count; j++)
+                {
+                    if (dgvHistorial.Rows[k].Cells[j].Value == null)
+                    {
+                        continue;
+                    }
+                    xcelApp.Cells[k + 2, j + 1] = dgvHistorial.Rows[k].Cells[j].Value.ToString();
+                }
+
+                //for (int i = 0; i < dgvHistorial.Rows.Count; i++)
+                //{
+                //    for (int j = 0; j < dgvHistorial.Columns.Count; j++)
+                //    {
+                //        if (dgvHistorial.Rows[i].Cells[j].Value == null)
+                //        {
+                //            continue;
+                //        }
+                //        xcelApp.Cells[i + 2, j + 1] = dgvHistorial.Rows[i].Cells[j].Value.ToString();
+                //    }
+                //}
+                xcelApp.Columns.AutoFit();
+                xcelApp.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("La tabla está vacía", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtFinder_TextChanged(object sender, EventArgs e)
         {
-
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dgvHistorial.DataSource;
+            bs.Filter = "Nombre like '%" + txtFinder.Text + "%'";
+            dgvHistorial.DataSource = bs;
         }
     }
 }

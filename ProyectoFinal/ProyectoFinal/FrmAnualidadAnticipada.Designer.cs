@@ -33,6 +33,7 @@ namespace ProyectoFinal
             this.rbtnVF = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.grbAnualidadTemplate = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAnualidad = new System.Windows.Forms.TextBox();
             this.cmbPeriodos = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@ namespace ProyectoFinal
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.grbValor = new System.Windows.Forms.GroupBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.grbAnualidadTemplate.SuspendLayout();
             this.grbTasa.SuspendLayout();
             this.grbValor.SuspendLayout();
@@ -124,10 +124,22 @@ namespace ProyectoFinal
             this.grbAnualidadTemplate.Font = new System.Drawing.Font("Goudy Old Style", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbAnualidadTemplate.Location = new System.Drawing.Point(12, 12);
             this.grbAnualidadTemplate.Name = "grbAnualidadTemplate";
-            this.grbAnualidadTemplate.Size = new System.Drawing.Size(605, 646);
+            this.grbAnualidadTemplate.Size = new System.Drawing.Size(627, 646);
             this.grbAnualidadTemplate.TabIndex = 3;
             this.grbAnualidadTemplate.TabStop = false;
             this.grbAnualidadTemplate.Text = "Datos del ejercicio";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
+            this.btnGuardar.Location = new System.Drawing.Point(515, 0);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(90, 40);
+            this.btnGuardar.TabIndex = 12;
+            this.btnGuardar.Text = "SAVE";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label5
             // 
@@ -149,11 +161,13 @@ namespace ProyectoFinal
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAnualidad.Enabled = false;
             this.txtAnualidad.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnualidad.ForeColor = System.Drawing.Color.Gray;
             this.txtAnualidad.Location = new System.Drawing.Point(222, 601);
             this.txtAnualidad.Name = "txtAnualidad";
             this.txtAnualidad.ReadOnly = true;
-            this.txtAnualidad.Size = new System.Drawing.Size(202, 39);
+            this.txtAnualidad.Size = new System.Drawing.Size(224, 39);
             this.txtAnualidad.TabIndex = 0;
+            this.txtAnualidad.Text = "NaN";
             this.txtAnualidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cmbPeriodos
@@ -164,9 +178,9 @@ namespace ProyectoFinal
             this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPeriodos.Font = new System.Drawing.Font("Century Schoolbook", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPeriodos.FormattingEnabled = true;
-            this.cmbPeriodos.Location = new System.Drawing.Point(271, 504);
+            this.cmbPeriodos.Location = new System.Drawing.Point(326, 504);
             this.cmbPeriodos.Name = "cmbPeriodos";
-            this.cmbPeriodos.Size = new System.Drawing.Size(133, 30);
+            this.cmbPeriodos.Size = new System.Drawing.Size(155, 30);
             this.cmbPeriodos.TabIndex = 4;
             this.cmbPeriodos.SelectedIndexChanged += new System.EventHandler(this.cmbPeriodos_SelectedIndexChanged);
             // 
@@ -176,10 +190,12 @@ namespace ProyectoFinal
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPeriodos.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeriodos.ForeColor = System.Drawing.Color.Gray;
             this.txtPeriodos.Location = new System.Drawing.Point(137, 505);
             this.txtPeriodos.Name = "txtPeriodos";
-            this.txtPeriodos.Size = new System.Drawing.Size(126, 29);
+            this.txtPeriodos.Size = new System.Drawing.Size(183, 29);
             this.txtPeriodos.TabIndex = 3;
+            this.txtPeriodos.Text = "Digite el periodo";
             this.txtPeriodos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPeriodos.TextChanged += new System.EventHandler(this.txtPeriodos_TextChanged);
             this.txtPeriodos.Enter += new System.EventHandler(this.txtPeriodos_Enter);
@@ -208,7 +224,7 @@ namespace ProyectoFinal
             this.cmbTipoInteres.FormattingEnabled = true;
             this.cmbTipoInteres.Location = new System.Drawing.Point(269, 388);
             this.cmbTipoInteres.Name = "cmbTipoInteres";
-            this.cmbTipoInteres.Size = new System.Drawing.Size(135, 30);
+            this.cmbTipoInteres.Size = new System.Drawing.Size(157, 30);
             this.cmbTipoInteres.TabIndex = 10;
             this.cmbTipoInteres.SelectedIndexChanged += new System.EventHandler(this.cmbTipoInteres_SelectedIndexChanged);
             // 
@@ -218,10 +234,12 @@ namespace ProyectoFinal
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInteres.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInteres.Location = new System.Drawing.Point(461, 358);
+            this.txtInteres.ForeColor = System.Drawing.Color.Gray;
+            this.txtInteres.Location = new System.Drawing.Point(454, 356);
             this.txtInteres.Name = "txtInteres";
-            this.txtInteres.Size = new System.Drawing.Size(112, 29);
+            this.txtInteres.Size = new System.Drawing.Size(151, 29);
             this.txtInteres.TabIndex = 2;
+            this.txtInteres.Text = "Digite la tasa";
             this.txtInteres.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtInteres.TextChanged += new System.EventHandler(this.txtInteres_TextChanged);
             this.txtInteres.Enter += new System.EventHandler(this.txtInteres_Enter);
@@ -234,7 +252,7 @@ namespace ProyectoFinal
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(579, 361);
+            this.label3.Location = new System.Drawing.Point(607, 359);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(20, 22);
             this.label3.TabIndex = 8;
@@ -309,10 +327,12 @@ namespace ProyectoFinal
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtValor.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.ForeColor = System.Drawing.Color.Gray;
             this.txtValor.Location = new System.Drawing.Point(300, 132);
             this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(202, 29);
+            this.txtValor.Size = new System.Drawing.Size(181, 29);
             this.txtValor.TabIndex = 1;
+            this.txtValor.Text = "Digite un valor";
             this.txtValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             this.txtValor.Enter += new System.EventHandler(this.txtValor_Enter);
@@ -328,27 +348,15 @@ namespace ProyectoFinal
             this.grbValor.Controls.Add(this.rbtnVF);
             this.grbValor.Location = new System.Drawing.Point(53, 76);
             this.grbValor.Name = "grbValor";
-            this.grbValor.Size = new System.Drawing.Size(238, 118);
+            this.grbValor.Size = new System.Drawing.Size(212, 118);
             this.grbValor.TabIndex = 3;
             this.grbValor.TabStop = false;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
-            this.btnGuardar.Location = new System.Drawing.Point(515, 0);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(90, 40);
-            this.btnGuardar.TabIndex = 12;
-            this.btnGuardar.Text = "SAVE";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FrmAnualidadAnticipada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 670);
+            this.ClientSize = new System.Drawing.Size(651, 670);
             this.Controls.Add(this.grbAnualidadTemplate);
             this.Name = "FrmAnualidadAnticipada";
             this.Text = "Anualidad Anticipada";

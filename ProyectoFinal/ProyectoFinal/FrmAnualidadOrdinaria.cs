@@ -227,6 +227,7 @@ namespace ProyectoFinal
                 TextBoxs_ValidationsContent(out float valor,out float vidaUtil, out float interes,out float anualidad );
 
                 FrmSave frmSave = new FrmSave();
+                frmSave.AnualidadesDaoImpl = AnualidadesDaoImpl;
                 frmSave.ShowDialog();
                 string nombre = frmSave.getNombre();
 

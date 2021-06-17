@@ -114,7 +114,6 @@ namespace ProyectoFinal
             this.MaximizeBox = false;
             this.Name = "FrmSave";
             this.Text = "Guardar Proyecto";
-            this.Load += new System.EventHandler(this.FrmSave_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -31,6 +31,7 @@ namespace ProyectoFinal
         {
             this.label1 = new System.Windows.Forms.Label();
             this.grbAnualidadPerpetua = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@ namespace ProyectoFinal
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.grbAnualidadPerpetua.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +80,18 @@ namespace ProyectoFinal
             this.grbAnualidadPerpetua.TabIndex = 3;
             this.grbAnualidadPerpetua.TabStop = false;
             this.grbAnualidadPerpetua.Text = "Datos del ejercicio";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
+            this.btnGuardar.Location = new System.Drawing.Point(467, 0);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(100, 39);
+            this.btnGuardar.TabIndex = 12;
+            this.btnGuardar.Text = "SAVE";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label7
             // 
@@ -141,6 +153,7 @@ namespace ProyectoFinal
             this.txtAnualidad.ReadOnly = true;
             this.txtAnualidad.Size = new System.Drawing.Size(176, 39);
             this.txtAnualidad.TabIndex = 0;
+            this.txtAnualidad.Text = "NaN";
             this.txtAnualidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtInteres
@@ -202,18 +215,6 @@ namespace ProyectoFinal
             this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             this.txtValor.Enter += new System.EventHandler(this.txtValor_Enter);
             this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
-            this.btnGuardar.Location = new System.Drawing.Point(467, 0);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(100, 39);
-            this.btnGuardar.TabIndex = 12;
-            this.btnGuardar.Text = "SAVE";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FrmAnualidadPerpetua
             // 
