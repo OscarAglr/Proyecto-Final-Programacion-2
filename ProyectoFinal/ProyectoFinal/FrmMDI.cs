@@ -36,5 +36,29 @@ namespace ProyectoFinal
             fNECF.MdiParent = this;
             fNECF.Show();
         }
+
+        private void ordinariaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnualidadOrdinaria frmAnualidadOrdinaria = new FrmAnualidadOrdinaria();
+            frmAnualidadOrdinaria.ShowDialog();
+        }
+
+        private void anticipadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnualidadAnticipada frmAnualidadAnticipada = new FrmAnualidadAnticipada();
+            frmAnualidadAnticipada.ShowDialog();
+        }
+
+        private void diferidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnualidadDiferida frmAnualidadDiferida = new FrmAnualidadDiferida();
+            frmAnualidadDiferida.ShowDialog();
+        }
+
+        private void perpetuaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnualidadPerpetua frmAnualidadPerpetua = new FrmAnualidadPerpetua();
+            frmAnualidadPerpetua.ShowDialog();
+        }
     }
 }

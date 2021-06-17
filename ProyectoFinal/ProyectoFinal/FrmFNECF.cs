@@ -218,7 +218,7 @@ namespace ProyectoFinal
                 }
                 txtTIR.Text = tir.ToString("N2");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No se pudo calcular la TIR", "Matrakazo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -248,7 +248,7 @@ namespace ProyectoFinal
                 }
                 txtVPN.Text = vpn.ToString("N2");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No se pudo calcular el VPN", "Matrakazo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);

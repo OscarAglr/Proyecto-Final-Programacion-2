@@ -49,7 +49,7 @@ namespace ProyectoFinal
                 FrmFNECF.LoadDepreciacion();
                 FrmFNECF.LoadAmortizacion();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Datos inválidos", "Mensaje de error",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
