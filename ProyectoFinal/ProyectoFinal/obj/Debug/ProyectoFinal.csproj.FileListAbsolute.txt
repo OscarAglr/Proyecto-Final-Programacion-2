@@ -1,0 +1,16 @@
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe.config
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.exe
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\bin\Debug\ProyectoFinal.pdb
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csprojAssemblyReference.cache
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.Properties.Resources.resources
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.GenerateResource.cache
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.CoreCompileInputs.cache
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.exe
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.pdb
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmMDI.resources
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmFNESF.resources
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmFNECF.resources
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmAddData.resources
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.FrmAddDataCF.resources
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\bin\Debug\Financial.dll
+C:\Users\jaguilar\Documents\Proyectos C#\ProyectoFinal\ProyectoFinal\obj\Debug\ProyectoFinal.csproj.CopyComplete
