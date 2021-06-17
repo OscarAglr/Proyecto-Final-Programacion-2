@@ -40,6 +40,7 @@ namespace ProyectoFinal
             this.label3 = new System.Windows.Forms.Label();
             this.txtVPN = new System.Windows.Forms.TextBox();
             this.txtTIR = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFNE)).BeginInit();
             this.SuspendLayout();
@@ -80,7 +81,6 @@ namespace ProyectoFinal
             this.dgvFNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvFNE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFNE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFNE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFNE.Location = new System.Drawing.Point(16, 84);
@@ -108,9 +108,9 @@ namespace ProyectoFinal
             this.button1.AutoSize = true;
             this.button1.Location = new System.Drawing.Point(177, 505);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 35);
+            this.button1.Size = new System.Drawing.Size(125, 35);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Calcular VPN y TIR";
+            this.button1.Text = "Calcular TIR";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -176,11 +176,24 @@ namespace ProyectoFinal
             this.txtTIR.TabIndex = 10;
             this.txtTIR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTIR_KeyPress);
             // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.AutoSize = true;
+            this.button2.Location = new System.Drawing.Point(177, 470);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 35);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Calcular VPN";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmFNESF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 552);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtTIR);
             this.Controls.Add(this.txtVPN);
             this.Controls.Add(this.label3);
@@ -193,7 +206,7 @@ namespace ProyectoFinal
             this.Controls.Add(this.numTables);
             this.Controls.Add(this.label1);
             this.Name = "FrmFNESF";
-            this.Text = "FrmFNESF";
+            this.Text = "Flujo de caja sin financiamiento";
             this.Load += new System.EventHandler(this.FrmFNESF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numTables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFNE)).EndInit();
@@ -215,5 +228,6 @@ namespace ProyectoFinal
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtVPN;
         private System.Windows.Forms.TextBox txtTIR;
+        private System.Windows.Forms.Button button2;
     }
 }

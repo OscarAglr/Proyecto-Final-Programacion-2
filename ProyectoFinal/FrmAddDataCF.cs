@@ -43,6 +43,9 @@ namespace ProyectoFinal
                 FrmFNECF.IndexDepreciacion = cbMetodos.SelectedIndex;
                 FrmFNECF.proyecto.Prestamo = Convert.ToDecimal(txtPrestamo.Text);
                 FrmFNECF.proyecto.Tasa_de_interes_prestamo = Convert.ToDecimal(txtTasaInteres.Text)/100;
+                decimal total = FrmFNECF.proyecto.Inversion + FrmFNECF.proyecto.Prestamo;
+                FrmFNECF.proyecto.TMAR_Mixta = (FrmFNECF.proyecto.Inversion / total) * FrmFNECF.proyecto.TMAR
+                    + (FrmFNECF.proyecto.Prestamo / total) * FrmFNECF.proyecto.Tasa_de_interes_prestamo;
                 FrmFNECF.LoadDepreciacion();
                 FrmFNECF.LoadAmortizacion();
             }

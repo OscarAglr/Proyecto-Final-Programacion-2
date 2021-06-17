@@ -20,6 +20,10 @@ namespace ProyectoFinal.MetodosDeEvaluacion
             double vpn = 0;
             for (int i = 0; i < size; i++)
             {
+                if (FNE[i] == 0)
+                {
+                    continue;
+                }
                 vpn += ValorPresente(FNE[i], i, tasa);
             }
             return vpn;

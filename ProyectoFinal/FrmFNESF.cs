@@ -69,6 +69,7 @@ namespace ProyectoFinal
             dgvFNE.Rows[10].ReadOnly = true;
             dgvFNE.Rows[11].ReadOnly = true;
             formatearCeldas();
+            quitarSort();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -81,16 +82,8 @@ namespace ProyectoFinal
             }
             try
             {
-                int colCount = dgvFNE.ColumnCount;
-                FNE = new double[colCount - 1];
-                for (int i = 1; i < colCount; i++)
-                {
-                    double fne = 0;
-                    double.TryParse(dgvFNE.Rows[11].Cells[i].Value.ToString(), out fne);
-                    FNE[i - 1] = fne;
-                }
+                FNE = GetFNE();
                 double tir = Metodos.TIR(FNE) * 100;
-                double vpn = Metodos.VPN(FNE, (double)proyecto.TMAR);
                 if ((decimal)tir / 100 < proyecto.TMAR)
                 {
                     txtTIR.ForeColor = Color.Red;
@@ -99,20 +92,11 @@ namespace ProyectoFinal
                 {
                     txtTIR.ForeColor = Color.Green;
                 }
-                if (vpn > 0)
-                {
-                    txtVPN.ForeColor = Color.Green;
-                }
-                else if (vpn < 0)
-                {
-                    txtVPN.ForeColor = Color.Red;
-                }
                 //MessageBox.Show($"{x}\n{y}");
-                txtVPN.Text = vpn.ToString("N2");
                 txtTIR.Text = tir.ToString("N2");
             } catch (Exception ex)
             {
-                MessageBox.Show("Hubo un error a la hora de hacer los calculos", "Matrakazo",
+                MessageBox.Show("No se pudo calcular la TIR", "Matrakazo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
@@ -164,6 +148,20 @@ namespace ProyectoFinal
                  
                 dgvFNE.Rows[11].Cells[i].Value = udi + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion + valor_de_rescate;
             }
+        }
+
+        private double[] GetFNE()
+        {
+            int colCount = dgvFNE.ColumnCount;
+            double[] FNE = new double[colCount - 1];
+            FNE = new double[colCount - 1];
+            for (int i = 1; i < colCount; i++)
+            {
+                double fne = 0;
+                double.TryParse(dgvFNE.Rows[11].Cells[i].Value.ToString(), out fne);
+                FNE[i - 1] = fne;
+            }
+            return FNE;
         }
 
         private void FrmFNESF_Load(object sender, EventArgs e)
@@ -222,6 +220,45 @@ namespace ProyectoFinal
         private void txtTIR_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void quitarSort()
+        {
+            foreach (DataGridViewColumn column in dgvFNE.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dgvFNE.DataSource == null)
+            {
+                MessageBox.Show("La tabla está vacía", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                FNE = GetFNE();
+                double vpn = Metodos.VPN(FNE, (double)proyecto.TMAR);
+                if (vpn > 0)
+                {
+                    txtVPN.ForeColor = Color.Green;
+                }
+                else if (vpn < 0)
+                {
+                    txtVPN.ForeColor = Color.Red;
+                }
+                txtVPN.Text = vpn.ToString("N2");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo calcular el VPN", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
         }
     }
 }

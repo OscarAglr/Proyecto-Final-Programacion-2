@@ -1,6 +1,7 @@
 ﻿using ProyectoFinal.Amortizacion;
 using ProyectoFinal.Depreciacion;
 using ProyectoFinal.Enums;
+using ProyectoFinal.MetodosDeEvaluacion;
 using ProyectoFinal.poco;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace ProyectoFinal
         public ProyectoCF proyecto;
         DataTable dt;
         const decimal IR = 0.30m;
-        List<decimal> ingresos = new List<decimal>();
-        List<decimal> costos = new List<decimal>();
-        List<double> FNE = new List<double>();
+        //List<decimal> ingresos = new List<decimal>();
+        //List<decimal> costos = new List<decimal>();
+        double[] FNE;
         CuotaNivelada amortizacion = new CuotaNivelada();
         public decimal[] Depreciacion { get; set; }
         public int IndexDepreciacion { get; set; }
@@ -54,10 +55,11 @@ namespace ProyectoFinal
             dt.Rows.Add("Depreciacion"); //7
             dt.Rows.Add("Egresos no afectos de impuesto"); //8
             dt.Rows.Add("Ingresos no afectos de impuesto"); //9
-            dt.Rows.Add("Abono al principal"); //10
-            dt.Rows.Add("Prestamo"); //11
-            dt.Rows.Add("Inversion"); //12
-            dt.Rows.Add("Flujos netos de efectivo"); //13
+            dt.Rows.Add("Valor de rescate"); //10
+            dt.Rows.Add("Abono al principal"); //11           
+            dt.Rows.Add("Prestamo"); //12
+            dt.Rows.Add("Inversion"); //13
+            dt.Rows.Add("Flujos netos de efectivo"); //14
             dgvFNECF.DataSource = dt;
             dgvFNECF.Rows[0].ReadOnly = false;
             dgvFNECF.Rows[1].ReadOnly = false;
@@ -73,6 +75,7 @@ namespace ProyectoFinal
             dgvFNECF.Rows[11].ReadOnly = true;
             dgvFNECF.Rows[12].ReadOnly = true;
             dgvFNECF.Rows[13].ReadOnly = true;
+            dgvFNECF.Rows[14].ReadOnly = true;
             formatearCeldas();
         }
 
@@ -91,22 +94,26 @@ namespace ProyectoFinal
             }
             int rowCount = dgvFNECF.Rows.Count;
             int colCount = dgvFNECF.ColumnCount;
+            //for (int i = 1; i < colCount; i++)
+            //{
+            //    decimal ingreso = 0;
+            //    decimal costo = 0;
+            //    decimal.TryParse(dgvFNECF.Rows[0].Cells[i].Value.ToString(), out ingreso);
+            //    decimal.TryParse(dgvFNECF.Rows[1].Cells[i].Value.ToString(), out costo);
+            //    ingresos.Add(ingreso);
+            //    costos.Add(costo);
+            //}
             for (int i = 1; i < colCount; i++)
             {
                 decimal ingreso = 0;
                 decimal costo = 0;
                 decimal.TryParse(dgvFNECF.Rows[0].Cells[i].Value.ToString(), out ingreso);
                 decimal.TryParse(dgvFNECF.Rows[1].Cells[i].Value.ToString(), out costo);
-                ingresos.Add(ingreso);
-                costos.Add(costo);
-            }
-            for (int i = 1; i < colCount; i++)
-            {
                 decimal dep = 0;
                 decimal.TryParse(dgvFNECF.Rows[2].Cells[i].Value.ToString(), out dep);
                 decimal interes = 0;
                 decimal.TryParse(dgvFNECF.Rows[3].Cells[i].Value.ToString(), out interes);
-                decimal uai = ingresos[i - 1] - costos[i - 1] - dep - interes;
+                decimal uai = ingreso - costo - dep - interes;
                 dgvFNECF.Rows[4].Cells[i].Value = uai;
                 decimal imp = uai * IR;
                 dgvFNECF.Rows[5].Cells[i].Value = imp;
@@ -115,16 +122,18 @@ namespace ProyectoFinal
 
                 decimal egresos_no_afectos_de_impuesto = 0;
                 decimal ingresos_no_afectos_de_impuesto = 0;
+                decimal valor_de_rescate = 0;
                 decimal abono = 0;
                 decimal prestamo = 0;
                 decimal inversion = 0;
 
                 decimal.TryParse(dgvFNECF.Rows[8].Cells[i].Value.ToString(), out egresos_no_afectos_de_impuesto);
                 decimal.TryParse(dgvFNECF.Rows[9].Cells[i].Value.ToString(), out ingresos_no_afectos_de_impuesto);
-                decimal.TryParse(dgvFNECF.Rows[10].Cells[i].Value.ToString(), out abono);
-                decimal.TryParse(dgvFNECF.Rows[11].Cells[i].Value.ToString(), out prestamo);
-                decimal.TryParse(dgvFNECF.Rows[12].Cells[i].Value.ToString(), out inversion);
-                dgvFNECF.Rows[13].Cells[i].Value = udi + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion - abono + prestamo;
+                decimal.TryParse(dgvFNECF.Rows[10].Cells[i].Value.ToString(), out valor_de_rescate);
+                decimal.TryParse(dgvFNECF.Rows[11].Cells[i].Value.ToString(), out abono);
+                decimal.TryParse(dgvFNECF.Rows[12].Cells[i].Value.ToString(), out prestamo);
+                decimal.TryParse(dgvFNECF.Rows[13].Cells[i].Value.ToString(), out inversion);
+                dgvFNECF.Rows[14].Cells[i].Value = udi + dep - egresos_no_afectos_de_impuesto + ingresos_no_afectos_de_impuesto - inversion - abono + prestamo + valor_de_rescate;
                 
             }
         }
@@ -145,6 +154,7 @@ namespace ProyectoFinal
             Depreciacion = depreciacion.Calcular(proyecto.Inversion,
                                                     proyecto.ValorResidual, proyecto.VidaUtil);
             AsignarInversion();
+            dgvFNECF.Rows[10].Cells[dgvFNECF.ColumnCount - 1].Value = proyecto.ValorResidual;
             int colCount = dgvFNECF.ColumnCount;
             for (int i = 2; i < colCount; i++)
             {
@@ -155,7 +165,7 @@ namespace ProyectoFinal
 
         private void AsignarInversion()
         {
-            dgvFNECF.Rows[12].Cells[1].Value = proyecto.Inversion;
+            dgvFNECF.Rows[13].Cells[1].Value = proyecto.Inversion;
         }
 
         public void LoadAmortizacion()
@@ -169,13 +179,13 @@ namespace ProyectoFinal
             for (int i = 2; i < colCount; i++)
             {
                 dgvFNECF.Rows[3].Cells[i].Value = intereses[i - 2];
-                dgvFNECF.Rows[10].Cells[i].Value = abonos[i - 2];
+                dgvFNECF.Rows[11].Cells[i].Value = abonos[i - 2];
             }
         }
 
         private void AsignarPrestamo()
         {
-            dgvFNECF.Rows[11].Cells[1].Value = proyecto.Prestamo;
+            dgvFNECF.Rows[12].Cells[1].Value = proyecto.Prestamo;
         }
 
         private void formatearCeldas()
@@ -184,6 +194,81 @@ namespace ProyectoFinal
             {
                 this.dgvFNECF.Columns[i].DefaultCellStyle.Format = "N2";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgvFNECF.DataSource == null)
+            {
+                MessageBox.Show("La tabla está vacía", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                FNE = GetFNE();
+                double tir = Metodos.TIR(FNE) * 100;
+                if ((decimal)tir / 100 < proyecto.TMAR)
+                {
+                    txtTIR.ForeColor = Color.Red;
+                }
+                else if ((decimal)tir / 100 > proyecto.TMAR)
+                {
+                    txtTIR.ForeColor = Color.Green;
+                }
+                txtTIR.Text = tir.ToString("N2");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo calcular la TIR", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dgvFNECF.DataSource == null)
+            {
+                MessageBox.Show("La tabla está vacía", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                FNE = GetFNE();
+                double vpn = Metodos.VPN(FNE, (double)proyecto.TMAR_Mixta);
+
+                if (vpn > 0)
+                {
+                    txtVPN.ForeColor = Color.Green;
+                }
+                else if (vpn < 0)
+                {
+                    txtVPN.ForeColor = Color.Red;
+                }
+                txtVPN.Text = vpn.ToString("N2");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo calcular el VPN", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+        }
+
+        private double[] GetFNE()
+        {
+            int colCount = dgvFNECF.ColumnCount;
+            double[] FNE = new double[colCount - 1];
+            FNE = new double[colCount - 1];
+            for (int i = 1; i < colCount; i++)
+            {
+                double fne = 0;
+                double.TryParse(dgvFNECF.Rows[14].Cells[i].Value.ToString(), out fne);
+                FNE[i - 1] = fne;
+            }
+            return FNE;
         }
     }
 }
