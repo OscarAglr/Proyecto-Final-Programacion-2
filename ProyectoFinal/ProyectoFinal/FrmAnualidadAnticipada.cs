@@ -1,4 +1,6 @@
-﻿using ProyectoFinal.Enums;
+﻿using ProyectoFinal.DaoImplement;
+using ProyectoFinal.Enums;
+using ProyectoFinal.poco;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,7 @@ namespace ProyectoFinal
 {
     public partial class FrmAnualidadAnticipada : Form
     {
+        public AnualidadesDaoImpl AnualidadesDaoImpl { get; set; }
         public FrmAnualidadAnticipada()
         {
             InitializeComponent();
@@ -193,6 +196,106 @@ namespace ProyectoFinal
         private void txtPeriodos_TextChanged(object sender, EventArgs e)
         {
             CalcularAnualidadActionPerformed();
+        }
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                TextBoxs_ValidationsContent(out float valor, out float vidaUtil, out float interes, out float anualidad);
+
+                FrmSave frmSave = new FrmSave();
+                frmSave.ShowDialog();
+                string nombre = frmSave.getNombre();
+
+                Periodos periodo = (Periodos)cmbPeriodos.SelectedIndex;
+                Tasas tasa = (Tasas)cmbTipoInteres.SelectedIndex;
+
+
+                if (rbtnVF.Checked == true)
+                {
+                    Anualidad a = new Anualidad()
+                    {
+                        nombreDelArchivo = nombre,
+                        tipoA = TipoDeAnualidad.Anticipada,
+                        valor = valor,
+                        tipoV = TipoValor.Futuro,
+                        vidaUtil = vidaUtil,
+                        periodo = periodo,
+                        interes = interes,
+                        tasa = tasa,
+                        anualidad = anualidad
+                    };
+                    AnualidadesDaoImpl.Create(a);
+                }
+                else
+                {
+                    Anualidad a = new Anualidad()
+                    {
+                        nombreDelArchivo = nombre,
+                        tipoA = TipoDeAnualidad.Ordinaria,
+                        valor = valor,
+                        tipoV = TipoValor.Presente,
+                        vidaUtil = vidaUtil,
+                        periodo = periodo,
+                        interes = interes,
+                        tasa = tasa,
+                        anualidad = anualidad
+                    };
+                    AnualidadesDaoImpl.Create(a);
+                }
+
+                CleanAll();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "ERROR MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void TextBoxs_ValidationsContent(out float valor, out float vidaUtil, out float interes, out float anualidad)
+        {
+            if (!float.TryParse(txtValor.Text, out float v))
+            {
+                //txtValor.Focus();
+                throw new ArgumentException($"Se necesita un valor presente/futuro.");
+            }
+            if (!float.TryParse(txtPeriodos.Text, out float vu))
+            {
+                //txtPeriodos.Focus();
+                throw new ArgumentException($"Se requiere especificar la vida util del poryecto.");
+            }
+            if (!float.TryParse(txtInteres.Text, out float i))
+            {
+                //txtInteres.Focus();
+                throw new ArgumentException($"Se nesecita especificar la tasa de interes.");
+            }
+            if (!float.TryParse(txtAnualidad.Text, out float a))
+            {
+                throw new ArgumentException($"La anualidad no esta definida, verifique que haya llenado todos los datos.");
+            }
+            valor = v;
+            vidaUtil = vu;
+            interes = i;
+            anualidad = a;
+        }
+        private void CleanAll()
+        {
+            txtPeriodos.ForeColor = Color.Gray;
+            txtPeriodos.Text = "Digite el periodo";
+
+            txtInteres.ForeColor = Color.Gray;
+            txtInteres.Text = "Digite la tasa";
+
+            txtValor.ForeColor = Color.Gray;
+            txtValor.Text = "Digite el valor";
+
+            txtAnualidad.Text = "NaN";
+            txtAnualidad.ForeColor = Color.Gray;
+
+            cmbPeriodos.SelectedIndex = 0;
+            cmbTipoInteres.SelectedIndex = 0;
         }
         private void Validacion_TextBox(KeyPressEventArgs e, TextBox txt)
         {
@@ -765,5 +868,7 @@ namespace ProyectoFinal
                 }
             }
         }
+
+        
     }
 }

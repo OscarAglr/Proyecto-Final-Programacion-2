@@ -1,7 +1,7 @@
 ﻿
 namespace ProyectoFinal
 {
-    partial class FrmAnualidadDiferida
+    partial class AnualidadDiferida
     {
         /// <summary>
         /// Required designer variable.
@@ -49,6 +49,7 @@ namespace ProyectoFinal
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.grbValor = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.grbAnualidadDiferida.SuspendLayout();
             this.grbTasa.SuspendLayout();
             this.grbValor.SuspendLayout();
@@ -108,6 +109,7 @@ namespace ProyectoFinal
             this.grbAnualidadDiferida.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbAnualidadDiferida.Controls.Add(this.btnGuardar);
             this.grbAnualidadDiferida.Controls.Add(this.txtPeriodoDeGracia);
             this.grbAnualidadDiferida.Controls.Add(this.label6);
             this.grbAnualidadDiferida.Controls.Add(this.label5);
@@ -129,7 +131,7 @@ namespace ProyectoFinal
             this.grbAnualidadDiferida.Size = new System.Drawing.Size(722, 757);
             this.grbAnualidadDiferida.TabIndex = 3;
             this.grbAnualidadDiferida.TabStop = false;
-            this.grbAnualidadDiferida.Text = "Datosn del ejercicio";
+            this.grbAnualidadDiferida.Text = "Datos del ejercicio";
             // 
             // txtPeriodoDeGracia
             // 
@@ -365,6 +367,18 @@ namespace ProyectoFinal
             this.grbValor.TabIndex = 3;
             this.grbValor.TabStop = false;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
+            this.btnGuardar.Location = new System.Drawing.Point(623, 0);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(99, 40);
+            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.Text = "SAVE";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // FrmAnualidadDiferida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -406,5 +420,6 @@ namespace ProyectoFinal
         private System.Windows.Forms.GroupBox grbValor;
         private System.Windows.Forms.TextBox txtPeriodoDeGracia;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

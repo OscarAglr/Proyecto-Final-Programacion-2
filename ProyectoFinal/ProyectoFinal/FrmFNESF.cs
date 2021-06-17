@@ -94,7 +94,7 @@ namespace ProyectoFinal
                 }
                 //MessageBox.Show($"{x}\n{y}");
                 txtTIR.Text = tir.ToString("N2");
-            } catch (Exception)
+            } catch (Exception ex)
             {
                 MessageBox.Show("No se pudo calcular la TIR", "Matrakazo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -171,6 +171,12 @@ namespace ProyectoFinal
 
         private void btnAddData_Click(object sender, EventArgs e)
         {
+            if (dgvFNE.DataSource == null)
+            {
+                MessageBox.Show("La tabla está vacía", "Mensaje de error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             FrmAddData frmAddData = new FrmAddData();
             frmAddData.VidaUtil = proyecto.VidaUtil;
             frmAddData.FrmFNESF = this;
@@ -230,6 +236,19 @@ namespace ProyectoFinal
             }
         }
 
+        public void MostrarTMAR()
+        {
+            try
+            {
+                txtTMAR.Text = $"{proyecto.TMAR * 100}%";
+            }
+            catch
+            {
+                return;
+            }
+            
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (dgvFNE.DataSource == null)
@@ -252,13 +271,47 @@ namespace ProyectoFinal
                 }
                 txtVPN.Text = vpn.ToString("N2");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("No se pudo calcular el VPN", "Matrakazo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvFNE.Rows.Count > 0)
+            {
+
+                Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                for (int i = 1; i < dgvFNE.Columns.Count + 1; i++)
+                {
+                    xcelApp.Cells[1, i] = dgvFNE.Columns[i - 1].HeaderText;
+                }
+
+                for (int i = 0; i < dgvFNE.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgvFNE.Columns.Count; j++)
+                    {
+                        if (dgvFNE.Rows[i].Cells[j].Value == null)
+                        {
+                            continue;
+                        }
+                        xcelApp.Cells[i + 2, j + 1] = dgvFNE.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                xcelApp.Columns.AutoFit();
+                xcelApp.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("La tabla está vacía", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -102,6 +102,7 @@ namespace ProyectoFinal
             this.txtTasaInteres.Name = "txtTasaInteres";
             this.txtTasaInteres.Size = new System.Drawing.Size(194, 26);
             this.txtTasaInteres.TabIndex = 24;
+            this.txtTasaInteres.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -127,6 +128,7 @@ namespace ProyectoFinal
             this.txtPrestamo.Name = "txtPrestamo";
             this.txtPrestamo.Size = new System.Drawing.Size(194, 26);
             this.txtPrestamo.TabIndex = 21;
+            this.txtPrestamo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -143,6 +145,7 @@ namespace ProyectoFinal
             this.txtVR.Name = "txtVR";
             this.txtVR.Size = new System.Drawing.Size(194, 26);
             this.txtVR.TabIndex = 19;
+            this.txtVR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -159,6 +162,7 @@ namespace ProyectoFinal
             this.txtTMAR.Name = "txtTMAR";
             this.txtTMAR.Size = new System.Drawing.Size(194, 26);
             this.txtTMAR.TabIndex = 17;
+            this.txtTMAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -191,6 +195,7 @@ namespace ProyectoFinal
             this.txtInversion.Name = "txtInversion";
             this.txtInversion.Size = new System.Drawing.Size(194, 26);
             this.txtInversion.TabIndex = 13;
+            this.txtInversion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 

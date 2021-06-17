@@ -40,6 +40,7 @@ namespace ProyectoFinal
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.grbAnualidadPerpetua.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@ namespace ProyectoFinal
             this.grbAnualidadPerpetua.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbAnualidadPerpetua.Controls.Add(this.btnGuardar);
             this.grbAnualidadPerpetua.Controls.Add(this.label7);
             this.grbAnualidadPerpetua.Controls.Add(this.label6);
             this.grbAnualidadPerpetua.Controls.Add(this.label4);
@@ -201,6 +203,18 @@ namespace ProyectoFinal
             this.txtValor.Enter += new System.EventHandler(this.txtValor_Enter);
             this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
+            this.btnGuardar.Location = new System.Drawing.Point(467, 0);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(100, 39);
+            this.btnGuardar.TabIndex = 12;
+            this.btnGuardar.Text = "SAVE";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // FrmAnualidadPerpetua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -227,5 +241,6 @@ namespace ProyectoFinal
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

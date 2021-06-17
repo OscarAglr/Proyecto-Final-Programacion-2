@@ -59,12 +59,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Amortizacion\CuotaNivelada.cs" />
+    <Compile Include="Amortizacion\CuotaProporcional.cs" />
+    <Compile Include="Anualidades\ValorFuturo\AnualidadAnticipada.cs" />
+    <Compile Include="Anualidades\ValorFuturo\AnualidadDiferida.cs" />
+    <Compile Include="Anualidades\ValorFuturo\AnudalidadOrdinaria.cs" />
+    <Compile Include="Anualidades\ValorPresente\AnualidadAnticipada.cs" />
+    <Compile Include="Anualidades\ValorPresente\AnualidadDiferida.cs" />
+    <Compile Include="Anualidades\ValorPresente\AnualidadPerpetua.cs" />
+    <Compile Include="Anualidades\ValorPresente\AnudalidadOrdinaria.cs" />
+    <Compile Include="DaoImplement\AnualidadesDaoImpl.cs" />
+    <Compile Include="Dao\IDao.cs" />
     <Compile Include="Depreciacion\DepreciacionFactory.cs" />
     <Compile Include="Depreciacion\IDepreciacion.cs" />
     <Compile Include="Depreciacion\LineaRecta.cs" />
     <Compile Include="Depreciacion\SDADepreciacion.cs" />
     <Compile Include="Enums\MetodoAmortizacion.cs" />
     <Compile Include="Enums\MetodoDepreciacion.cs" />
+    <Compile Include="Enums\Periodos.cs" />
+    <Compile Include="Enums\Perpetua.cs" />
+    <Compile Include="Enums\Tasas.cs" />
+    <Compile Include="Enums\TipoDeAnualidad.cs" />
+    <Compile Include="Enums\TipoValor.cs" />
     <Compile Include="FrmAddData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +91,36 @@
     </Compile>
     <Compile Include="FrmAddDataCF.Designer.cs">
       <DependentUpon>FrmAddDataCF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnualidadAnticipada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnualidadAnticipada.designer.cs">
+      <DependentUpon>FrmAnualidadAnticipada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnualidadDiferida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnualidadDiferida.designer.cs">
+      <DependentUpon>FrmAnualidadDiferida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnualidadesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnualidadesList.designer.cs">
+      <DependentUpon>FrmAnualidadesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnualidadOrdinaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnualidadOrdinaria.designer.cs">
+      <DependentUpon>FrmAnualidadOrdinaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnualidadPerpetua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnualidadPerpetua.designer.cs">
+      <DependentUpon>FrmAnualidadPerpetua.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFNECF.cs">
       <SubType>Form</SubType>
@@ -95,7 +140,14 @@
     <Compile Include="FrmFNESF.Designer.cs">
       <DependentUpon>FrmFNESF.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSave.designer.cs">
+      <DependentUpon>FrmSave.cs</DependentUpon>
+    </Compile>
     <Compile Include="MetodosDeEvaluacion\Metodos.cs" />
+    <Compile Include="poco\Anualidad.cs" />
     <Compile Include="poco\Proyecto.cs" />
     <Compile Include="poco\ProyectoCF.cs" />
     <Compile Include="Program.cs" />
@@ -106,6 +158,21 @@
     <EmbeddedResource Include="FrmAddDataCF.resx">
       <DependentUpon>FrmAddDataCF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnualidadAnticipada.resx">
+      <DependentUpon>FrmAnualidadAnticipada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnualidadDiferida.resx">
+      <DependentUpon>FrmAnualidadDiferida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnualidadesList.resx">
+      <DependentUpon>FrmAnualidadesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnualidadOrdinaria.resx">
+      <DependentUpon>FrmAnualidadOrdinaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnualidadPerpetua.resx">
+      <DependentUpon>FrmAnualidadPerpetua.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmFNECF.resx">
       <DependentUpon>FrmFNECF.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFNESF.resx">
       <DependentUpon>FrmFNESF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSave.resx">
+      <DependentUpon>FrmSave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -141,6 +211,34 @@
     <Content Include="1486564180-finance-financial-report_81493.ico" />
     <EmbeddedResource Include="Financial.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

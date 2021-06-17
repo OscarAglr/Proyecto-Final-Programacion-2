@@ -74,6 +74,7 @@ namespace ProyectoFinal
             this.txtVR.Name = "txtVR";
             this.txtVR.Size = new System.Drawing.Size(199, 26);
             this.txtVR.TabIndex = 9;
+            this.txtVR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -90,6 +91,7 @@ namespace ProyectoFinal
             this.txtTMAR.Name = "txtTMAR";
             this.txtTMAR.Size = new System.Drawing.Size(199, 26);
             this.txtTMAR.TabIndex = 7;
+            this.txtTMAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -122,6 +124,7 @@ namespace ProyectoFinal
             this.txtInversion.Name = "txtInversion";
             this.txtInversion.Size = new System.Drawing.Size(199, 26);
             this.txtInversion.TabIndex = 3;
+            this.txtInversion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 

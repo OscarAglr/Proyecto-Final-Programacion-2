@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace ProyectoFinal.poco
         public decimal Prestamo { get; set; }
         public decimal Tasa_de_interes_prestamo { get; set; }
         public decimal TMAR_Mixta { get; set; }
+        public MetodoAmortizacion Tipo_de_amortizacion { get; set; }
     }
 }

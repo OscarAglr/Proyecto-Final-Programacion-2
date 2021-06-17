@@ -41,6 +41,9 @@ namespace ProyectoFinal
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnVPN = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTMARMixta = new System.Windows.Forms.TextBox();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFNECF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTables)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +53,8 @@ namespace ProyectoFinal
             this.dgvFNECF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFNECF.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFNECF.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFNECF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFNECF.Location = new System.Drawing.Point(12, 88);
             this.dgvFNECF.Name = "dgvFNECF";
@@ -113,7 +118,7 @@ namespace ProyectoFinal
             // btnCalcular
             // 
             this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalcular.Location = new System.Drawing.Point(683, 505);
+            this.btnCalcular.Location = new System.Drawing.Point(683, 470);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(105, 35);
             this.btnCalcular.TabIndex = 5;
@@ -128,6 +133,7 @@ namespace ProyectoFinal
             this.txtTIR.Name = "txtTIR";
             this.txtTIR.Size = new System.Drawing.Size(100, 26);
             this.txtTIR.TabIndex = 15;
+            this.txtTIR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTIR_KeyPress);
             // 
             // txtVPN
             // 
@@ -136,6 +142,7 @@ namespace ProyectoFinal
             this.txtVPN.Name = "txtVPN";
             this.txtVPN.Size = new System.Drawing.Size(100, 26);
             this.txtVPN.TabIndex = 14;
+            this.txtVPN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVPN_KeyPress);
             // 
             // label3
             // 
@@ -180,11 +187,42 @@ namespace ProyectoFinal
             this.btnVPN.UseVisualStyleBackColor = true;
             this.btnVPN.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "TMAR Mixta";
+            // 
+            // txtTMARMixta
+            // 
+            this.txtTMARMixta.Location = new System.Drawing.Point(113, 19);
+            this.txtTMARMixta.Name = "txtTMARMixta";
+            this.txtTMARMixta.ReadOnly = true;
+            this.txtTMARMixta.Size = new System.Drawing.Size(100, 26);
+            this.txtTMARMixta.TabIndex = 18;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(637, 511);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(151, 35);
+            this.btnExport.TabIndex = 19;
+            this.btnExport.Text = "Exportar a Excel";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // FrmFNECF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 552);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.txtTMARMixta);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnVPN);
             this.Controls.Add(this.txtTIR);
             this.Controls.Add(this.txtVPN);
@@ -221,5 +259,8 @@ namespace ProyectoFinal
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnVPN;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTMARMixta;
+        private System.Windows.Forms.Button btnExport;
     }
 }

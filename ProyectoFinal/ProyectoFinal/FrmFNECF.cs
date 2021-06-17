@@ -23,9 +23,10 @@ namespace ProyectoFinal
         //List<decimal> ingresos = new List<decimal>();
         //List<decimal> costos = new List<decimal>();
         double[] FNE;
-        CuotaNivelada amortizacion = new CuotaNivelada();
+        //CuotaNivelada amortizacion = new CuotaNivelada();
         public decimal[] Depreciacion { get; set; }
         public int IndexDepreciacion { get; set; }
+        //public int IndexAmortizacion { get; set; }
         public FrmFNECF()
         {
             InitializeComponent();
@@ -77,6 +78,7 @@ namespace ProyectoFinal
             dgvFNECF.Rows[13].ReadOnly = true;
             dgvFNECF.Rows[14].ReadOnly = true;
             formatearCeldas();
+            quitarSort();
         }
 
         private void FrmFNECF_Load(object sender, EventArgs e)
@@ -140,10 +142,29 @@ namespace ProyectoFinal
 
         private void btnData_Click(object sender, EventArgs e)
         {
+            if (dgvFNECF.DataSource == null)
+            {
+                MessageBox.Show("La tabla está vacía", "Mensaje de error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             FrmAddDataCF frmAddData = new FrmAddDataCF();
             frmAddData.VidaUtil = proyecto.VidaUtil;
             frmAddData.FrmFNECF = this;
             frmAddData.ShowDialog();
+        }
+
+        public void MostrarTMARMixta()
+        {
+            try
+            {
+                txtTMARMixta.Text = $"{proyecto.TMAR_Mixta * 100}%";
+            }
+            catch
+            {
+                return;
+            }
+
         }
 
         public void LoadDepreciacion()
@@ -170,22 +191,55 @@ namespace ProyectoFinal
 
         public void LoadAmortizacion()
         {
-            decimal[] intereses = amortizacion.CalcularInteres(proyecto.Prestamo,
-                proyecto.Tasa_de_interes_prestamo, proyecto.VidaUtil);
-            decimal[] abonos = amortizacion.CalcularAbono(proyecto.Prestamo,
-                proyecto.Tasa_de_interes_prestamo, proyecto.VidaUtil);
-            AsignarPrestamo();
+            decimal[] intereses;
+            decimal[] abonos;
             int colCount = dgvFNECF.ColumnCount;
-            for (int i = 2; i < colCount; i++)
+            
+            switch (proyecto.Tipo_de_amortizacion)
             {
-                dgvFNECF.Rows[3].Cells[i].Value = intereses[i - 2];
-                dgvFNECF.Rows[11].Cells[i].Value = abonos[i - 2];
+                case MetodoAmortizacion.CUOTA_NIVELADA:
+                    CuotaNivelada amortizacion = new CuotaNivelada();
+                    intereses = amortizacion.CalcularInteres(proyecto.Prestamo,
+                    proyecto.Tasa_de_interes_prestamo, proyecto.VidaUtil);
+                    abonos = amortizacion.CalcularAbono(proyecto.Prestamo,
+                        proyecto.Tasa_de_interes_prestamo, proyecto.VidaUtil);
+                    AsignarPrestamo();
+
+                    for (int i = 2; i < colCount; i++)
+                    {
+                        dgvFNECF.Rows[3].Cells[i].Value = intereses[i - 2];
+                        dgvFNECF.Rows[11].Cells[i].Value = abonos[i - 2];
+                    }
+                    break;
+                case MetodoAmortizacion.CUOTA_PROPORCIONAL:
+                    CuotaProporcional amortizacion_cp = new CuotaProporcional();
+                    intereses = amortizacion_cp.CalcularInteres(proyecto.Prestamo,
+                    proyecto.Tasa_de_interes_prestamo, proyecto.VidaUtil);
+                    abonos = amortizacion_cp.CalcularAbono(proyecto.Prestamo, proyecto.VidaUtil);
+                    AsignarPrestamo();
+
+                    for (int i = 2; i < colCount; i++)
+                    {
+                        dgvFNECF.Rows[3].Cells[i].Value = intereses[i - 2];
+                        dgvFNECF.Rows[11].Cells[i].Value = abonos[i - 2];
+                    }
+                    break; 
+                default:
+                    return;
             }
         }
 
         private void AsignarPrestamo()
         {
             dgvFNECF.Rows[12].Cells[1].Value = proyecto.Prestamo;
+        }
+
+        private void quitarSort()
+        {
+            foreach (DataGridViewColumn column in dgvFNECF.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         private void formatearCeldas()
@@ -218,7 +272,7 @@ namespace ProyectoFinal
                 }
                 txtTIR.Text = tir.ToString("N2");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("No se pudo calcular la TIR", "Matrakazo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -248,7 +302,7 @@ namespace ProyectoFinal
                 }
                 txtVPN.Text = vpn.ToString("N2");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("No se pudo calcular el VPN", "Matrakazo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -269,6 +323,50 @@ namespace ProyectoFinal
                 FNE[i - 1] = fne;
             }
             return FNE;
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dgvFNECF.Rows.Count > 0)
+            {
+
+                Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
+                xcelApp.Application.Workbooks.Add(Type.Missing);
+
+                for (int i = 1; i < dgvFNECF.Columns.Count + 1; i++)
+                {
+                    xcelApp.Cells[1, i] = dgvFNECF.Columns[i - 1].HeaderText;
+                }
+
+                for (int i = 0; i < dgvFNECF.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgvFNECF.Columns.Count; j++)
+                    {
+                        if (dgvFNECF.Rows[i].Cells[j].Value == null)
+                        {
+                            continue;
+                        }
+                        xcelApp.Cells[i + 2, j + 1] = dgvFNECF.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                xcelApp.Columns.AutoFit();
+                xcelApp.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("La tabla está vacía", "Matrakazo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtVPN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txtTIR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

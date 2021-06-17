@@ -47,6 +47,7 @@ namespace ProyectoFinal
             this.label2 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.grbValor = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.grbAnualidadTemplate.SuspendLayout();
             this.grbTasa.SuspendLayout();
             this.grbValor.SuspendLayout();
@@ -95,7 +96,7 @@ namespace ProyectoFinal
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 30);
+            this.label1.Location = new System.Drawing.Point(19, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 23);
             this.label1.TabIndex = 0;
@@ -106,6 +107,7 @@ namespace ProyectoFinal
             this.grbAnualidadTemplate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbAnualidadTemplate.Controls.Add(this.btnGuardar);
             this.grbAnualidadTemplate.Controls.Add(this.label5);
             this.grbAnualidadTemplate.Controls.Add(this.txtAnualidad);
             this.grbAnualidadTemplate.Controls.Add(this.cmbPeriodos);
@@ -342,6 +344,18 @@ namespace ProyectoFinal
             this.grbValor.TabIndex = 3;
             this.grbValor.TabStop = false;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
+            this.btnGuardar.Location = new System.Drawing.Point(636, 0);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(93, 40);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.Text = "SAVE";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // FrmAnualidadOrdinaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,7 +363,7 @@ namespace ProyectoFinal
             this.ClientSize = new System.Drawing.Size(753, 670);
             this.Controls.Add(this.grbAnualidadTemplate);
             this.Name = "FrmAnualidadOrdinaria";
-            this.Text = "Anualidad Template";
+            this.Text = "Anualidad Ordinaria";
             this.Load += new System.EventHandler(this.FrmAnualidadOrdinaria_Load);
             this.grbAnualidadTemplate.ResumeLayout(false);
             this.grbAnualidadTemplate.PerformLayout();
@@ -381,5 +395,6 @@ namespace ProyectoFinal
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.GroupBox grbValor;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

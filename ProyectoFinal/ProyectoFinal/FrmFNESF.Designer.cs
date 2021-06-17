@@ -41,6 +41,9 @@ namespace ProyectoFinal
             this.txtVPN = new System.Windows.Forms.TextBox();
             this.txtTIR = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTMAR = new System.Windows.Forms.TextBox();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFNE)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +73,7 @@ namespace ProyectoFinal
             this.numTables.Name = "numTables";
             this.numTables.Size = new System.Drawing.Size(72, 26);
             this.numTables.TabIndex = 1;
+            this.numTables.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numTables.Value = new decimal(new int[] {
             1,
             0,
@@ -81,6 +85,7 @@ namespace ProyectoFinal
             this.dgvFNE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFNE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFNE.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvFNE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFNE.Location = new System.Drawing.Point(16, 84);
@@ -118,7 +123,7 @@ namespace ProyectoFinal
             // 
             this.btnCalcular.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalcular.AutoSize = true;
-            this.btnCalcular.Location = new System.Drawing.Point(683, 500);
+            this.btnCalcular.Location = new System.Drawing.Point(683, 465);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(105, 35);
             this.btnCalcular.TabIndex = 5;
@@ -188,11 +193,42 @@ namespace ProyectoFinal
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "TMAR";
+            // 
+            // txtTMAR
+            // 
+            this.txtTMAR.Location = new System.Drawing.Point(72, 16);
+            this.txtTMAR.Name = "txtTMAR";
+            this.txtTMAR.ReadOnly = true;
+            this.txtTMAR.Size = new System.Drawing.Size(100, 26);
+            this.txtTMAR.TabIndex = 13;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(637, 505);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(151, 35);
+            this.btnExport.TabIndex = 14;
+            this.btnExport.Text = "Exportar a Excel";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // FrmFNESF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 552);
+            this.Controls.Add(this.btnExport);
+            this.Controls.Add(this.txtTMAR);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtTIR);
             this.Controls.Add(this.txtVPN);
@@ -229,5 +265,8 @@ namespace ProyectoFinal
         private System.Windows.Forms.TextBox txtVPN;
         private System.Windows.Forms.TextBox txtTIR;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTMAR;
+        private System.Windows.Forms.Button btnExport;
     }
 }
